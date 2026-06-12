@@ -6,14 +6,15 @@
     <title>Naresh Kumar | Full-Stack E-Commerce & Custom App Engineer</title>
     <style>
         :root {
-            --bg-dark: #07090e;
-            --surface-card: #0f131a;
-            --border-line: #1f2633;
+            --bg-dark: #0b0f17;
+            --surface-card: #131b2e;
+            --border-line: #222f4d;
             --accent-glow: #00ffcc;
+            --accent-purple: #8b5cf6;
             --accent-blue: #38bdf8;
             --text-primary: #f3f4f6;
             --text-secondary: #9ca3af;
-            --gradient-text: linear-gradient(135deg, #00ffcc 0%, #38bdf8 100%);
+            --gradient-text: linear-gradient(135deg, #00ffcc 0%, #8b5cf6 100%);
         }
 
         * {
@@ -31,7 +32,7 @@
         }
 
         .container {
-            max-width: 1320px;
+            max-width: 1050px;
             margin: 0 auto;
         }
 
@@ -105,7 +106,7 @@
         /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
             gap: 25px;
         }
 
@@ -120,17 +121,17 @@
         .service-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent-glow);
-            box-shadow: 0 12px 40px rgba(0, 255, 204, 0.04);
+            box-shadow: 0 12px 40px rgba(0, 255, 204, 0.06);
         }
 
         .service-card h3 {
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             color: #fff;
             margin-bottom: 18px;
         }
 
         .service-card h3 span {
-            color: var(--accent-blue);
+            color: var(--accent-purple);
         }
 
         .service-card ul {
@@ -139,8 +140,8 @@
 
         .service-card li {
             color: var(--text-secondary);
-            font-size: 1rem;
-            margin-bottom: 10px;
+            font-size: 0.98rem;
+            margin-bottom: 12px;
             position: relative;
             padding-left: 20px;
         }
@@ -153,6 +154,11 @@
             font-weight: bold;
         }
 
+        .service-card strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
         /* Projects Layout */
         .project-grid {
             display: grid;
@@ -162,6 +168,8 @@
 
         @media (max-width: 768px) {
             .project-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2.4rem; }
+            body { padding: 40px 15px; }
         }
 
         .project-card {
@@ -172,11 +180,12 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: border-color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .project-card:hover {
-            border-color: var(--accent-blue);
+            border-color: var(--accent-purple);
+            box-shadow: 0 12px 40px rgba(139, 92, 246, 0.04);
         }
 
         .project-top {
@@ -198,7 +207,7 @@
         }
 
         .live-btn {
-            background: #161e2e;
+            background: #1a2438;
             color: var(--accent-blue);
             text-decoration: none;
             padding: 6px 14px;
@@ -218,13 +227,13 @@
 
         .badge {
             display: inline-block;
-            background: rgba(56, 189, 248, 0.08);
-            color: var(--accent-blue);
+            background: rgba(139, 92, 246, 0.08);
+            color: var(--accent-purple);
             padding: 4px 10px;
             border-radius: 4px;
             font-size: 0.8rem;
             font-weight: 700;
-            border: 1px solid rgba(56, 189, 248, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.15);
             margin-bottom: 15px;
         }
 
@@ -247,7 +256,7 @@
         }
 
         .tech-tag {
-            background: #141b26;
+            background: #172237;
             color: var(--text-primary);
             font-size: 0.8rem;
             font-weight: 500;
@@ -257,7 +266,7 @@
         }
 
         .footer-box {
-            background: linear-gradient(135deg, #0f131a 0%, #07090e 100%);
+            background: linear-gradient(135deg, #131b2e 0%, #0b0f17 100%);
             border: 1px solid var(--border-line);
             border-radius: 14px;
             padding: 50px 40px;
@@ -309,43 +318,43 @@
         <p>Specializing in custom e-commerce apps, API plugin engineering, and headless storefronts. I build scalable backends and pixel-perfect high-converting experiences for brands driving millions in revenue.</p>
     </header>
 
-   <section id="capabilities">
+    <section id="capabilities">
         <h2>Targeted Digital Implementations</h2>
         <div class="services-grid">
             
             <div class="service-card">
-                <h3><span>/ 01</span> High-Converting Landing Pages</h3>
+                <h3><span>/ 01</span> Landing Pages</h3>
                 <ul>
-                    <li>**Purpose-Built for SaaS & Product Launches:** Micro-sprints focused entirely on turning ad traffic into paying users.</li>
-                    <li>**Sub-2s Mobile Interactive Engine:** Lightweight components engineered to achieve near-zero bounce rates.</li>
-                    <li>**Figma-to-Code Precision:** 100% pixel-perfect translation of complex UI/UX structures into clean code.</li>
+                    <li><strong>Purpose-Built for SaaS & Products:</strong> Micro-sprints focused entirely on turning ad traffic into paying users.</li>
+                    <li><strong>Sub-2s Mobile Interactive Engine:</strong> Lightweight components engineered to achieve near-zero bounce rates.</li>
+                    <li><strong>Figma-to-Code Precision:</strong> 100% pixel-perfect translation of complex UI/UX structures into clean code.</li>
                 </ul>
             </div>
 
             <div class="service-card">
-                <h3><span>/ 02</span> Enterprise E-Commerce Stores</h3>
+                <h3><span>/ 02</span> E-Commerce Stores</h3>
                 <ul>
-                    <li>**Shopify Plus & WooCommerce Engineering:** Bespoke development tailored for high-volume million-dollar ecosystems.</li>
-                    <li>**App-Free Native Integrations:** Hard-coding dynamic checkouts, variation charts, and custom builders directly.</li>
-                    <li>**Database Sync Automations:** Flawless tracking and inventory loop configurations for third-party endpoints.</li>
+                    <li><strong>Shopify Plus & WooCommerce:</strong> Bespoke development tailored for high-volume million-dollar ecosystems.</li>
+                    <li><strong>App-Free Native Integrations:</strong> Hard-coding dynamic checkouts, variation charts, and custom builders directly.</li>
+                    <li><strong>Database Sync Automations:</strong> Flawless tracking and inventory loop configurations for third-party endpoints.</li>
                 </ul>
             </div>
 
             <div class="service-card">
-                <h3><span>/ 03</span> Premium Business Platforms</h3>
+                <h3><span>/ 03</span> Business Websites</h3>
                 <ul>
-                    <li>**Authority Web Architecture:** Sleek, high-ticket corporate portals designed to build instant institutional trust.</li>
-                    <li>**Custom Object & API Integrations:** Tailored plugin solutions (like Real Estate indexers) with zero latency loops.</li>
-                    <li>**Server Hardening & Security:** Advanced caching architectures, secure source chains, and automated backup hooks.</li>
+                    <li><strong>Authority Web Architecture:</strong> Sleek, high-ticket corporate portals designed to build instant institutional trust.</li>
+                    <li><strong>Custom Object & API Integrations:</strong> Tailored plugin solutions (like Real Estate indexers) with zero latency loops.</li>
+                    <li><strong>Server Hardening & Security:</strong> Advanced caching architectures, secure source chains, and automated backup hooks.</li>
                 </ul>
             </div>
 
             <div class="service-card">
-                <h3><span>/ 04</span> SEO-Driven Blogs & Publishing Hubs</h3>
+                <h3><span>/ 04</span> Authority Blogs</h3>
                 <ul>
-                    <li>**Advanced Information Architecture:** Structural layouts engineered perfectly for indexing bots and search engines.</li>
-                    <li>**Dynamic Content Layout Loops:** Fast rendering mechanisms designed to handle massive traffic and article catalogs.</li>
-                    <li>**Core Web Vitals Optimization:** Elimination of Cumulative Layout Shifts (CLS) for a flawless reading experience.</li>
+                    <li><strong>Advanced Information Architecture:</strong> Structural layouts engineered perfectly for indexing bots and search engines.</li>
+                    <li><strong>Dynamic Content Layout Loops:</strong> Fast rendering mechanisms designed to handle massive traffic and article catalogs.</li>
+                    <li><strong>Core Web Vitals Optimization:</strong> Elimination of Cumulative Layout Shifts (CLS) for a flawless reading experience.</li>
                 </ul>
             </div>
 
@@ -479,6 +488,7 @@
         <p>Open to technical architecture contracts, dedicated freelance sprints, or acting as an outsourced white-label partner for global design studios.</p>
         <div class="contact-links">
             <a href="https://www.linkedin.com/in/naresh-shopify-expert/" class="contact-btn primary" target="_blank">Connect via LinkedIn</a>
+            <a href="https://wa.me/918219939782?text=Hi%20Naresh,%20I%20reviewed%20your%20portfolio%20and%20would%20love%20to%20discuss%20a%20project." class="contact-btn" target="_blank">Message via WhatsApp</a>
         </div>
     </section>
 
