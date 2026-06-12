@@ -1,250 +1,481 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naresh Kumar | Senior E-commerce Engineer Portfolio</title>
+    <title>Naresh Kumar | Full-Stack E-Commerce & Custom App Engineer</title>
     <style>
         :root {
-            --bg-color: #0d0f12;
-            --card-bg: #161b22;
-            --accent-color: #58a6ff;
-            --text-main: #c9d1d9;
-            --text-bright: #f0f6fc;
-            --accent-green: #3fb950;
+            --bg-dark: #07090e;
+            --surface-card: #0f131a;
+            --border-line: #1f2633;
+            --accent-glow: #00ffcc;
+            --accent-blue: #38bdf8;
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --gradient-text: linear-gradient(135deg, #00ffcc 0%, #38bdf8 100%);
         }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
+
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding: 40px 20px;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 60px 20px;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1050px;
             margin: 0 auto;
         }
 
-        /* Header Section */
         header {
-            border-bottom: 1px solid #30363d;
-            padding-bottom: 30px;
-            margin-bottom: 40px;
+            text-align: center;
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border-line);
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 2px;
+            background: var(--gradient-text);
         }
 
         h1 {
-            color: var(--text-bright);
-            font-size: 2.5rem;
-            margin: 0 0 10px 0;
+            font-size: 3.2rem;
+            font-weight: 800;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+            letter-spacing: -0.05em;
         }
 
-        .subtitle {
+        .title-badge {
+            display: inline-block;
+            background: rgba(0, 255, 204, 0.08);
+            color: var(--accent-glow);
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            margin-bottom: 20px;
+        }
+
+        header p {
             font-size: 1.2rem;
-            color: var(--accent-color);
-            margin: 0 0 15px 0;
-            font-weight: 500;
-        }
-
-        .bio {
-            font-size: 1.05rem;
+            color: var(--text-secondary);
             max-width: 750px;
-        }
-
-        /* Section Styling */
-        section {
-            margin-bottom: 50px;
+            margin: 0 auto;
         }
 
         h2 {
-            color: var(--text-bright);
-            border-bottom: 1px solid #21262d;
-            padding-bottom: 8px;
-            font-size: 1.6rem;
+            font-size: 1.9rem;
+            font-weight: 700;
+            margin-bottom: 35px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        /* Tech Stack Grid */
-        .skills-grid {
+        h2::before {
+            content: '//';
+            color: var(--accent-glow);
+            font-family: monospace;
+        }
+
+        section {
+            margin-bottom: 70px;
+        }
+
+        /* Services Grid */
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
 
-        .skill-card {
-            background-color: var(--card-bg);
-            border: 1px solid #30363d;
-            border-radius: 6px;
-            padding: 20px;
+        .service-card {
+            background-color: var(--surface-card);
+            border: 1px solid var(--border-line);
+            border-radius: 14px;
+            padding: 35px;
+            transition: all 0.3s ease;
         }
 
-        .skill-card h3 {
-            color: var(--accent-color);
-            margin: 0 0 10px 0;
-            font-size: 1.1rem;
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-glow);
+            box-shadow: 0 12px 40px rgba(0, 255, 204, 0.04);
         }
 
-        .skill-card ul {
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: #fff;
+            margin-bottom: 18px;
+        }
+
+        .service-card h3 span {
+            color: var(--accent-blue);
+        }
+
+        .service-card ul {
             list-style: none;
-            padding: 0;
-            margin: 0;
         }
 
-        .skill-card li {
-            margin-bottom: 6px;
-            font-size: 0.95rem;
+        .service-card li {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
         }
 
-        /* Projects Section */
+        .service-card li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-glow);
+            font-weight: bold;
+        }
+
+        /* Projects Layout */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .project-grid { grid-template-columns: 1fr; }
+        }
+
         .project-card {
-            background-color: var(--card-bg);
-            border: 1px solid #30363d;
-            border-radius: 6px;
-            padding: 25px;
-            margin-bottom: 25px;
+            background-color: var(--surface-card);
+            border: 1px solid var(--border-line);
+            border-radius: 14px;
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: border-color 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent-blue);
+        }
+
+        .project-top {
+            margin-bottom: 20px;
         }
 
         .project-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 15px;
+            gap: 15px;
+            margin-bottom: 12px;
         }
 
         .project-title {
-            color: var(--text-bright);
-            font-size: 1.3rem;
-            margin: 0;
-            font-weight: 600;
+            font-size: 1.4rem;
+            color: #fff;
+            font-weight: 700;
         }
 
-        .project-link {
-            color: var(--accent-color);
+        .live-btn {
+            background: #161e2e;
+            color: var(--accent-blue);
             text-decoration: none;
-            font-size: 0.9rem;
-            border: 1px solid #30363d;
-            padding: 4px 12px;
-            border-radius: 4px;
-            background-color: #21262d;
-        }
-
-        .project-link:hover {
-            background-color: #30363d;
-        }
-
-        .metrics-badge {
-            background-color: rgba(63, 185, 80, 0.15);
-            color: var(--accent-green);
-            padding: 4px 10px;
-            border-radius: 4px;
+            padding: 6px 14px;
+            border-radius: 6px;
             font-size: 0.85rem;
             font-weight: 600;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        .live-btn:hover {
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+            border-color: var(--accent-blue);
+        }
+
+        .badge {
             display: inline-block;
+            background: rgba(56, 189, 248, 0.08);
+            color: var(--accent-blue);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border: 1px solid rgba(56, 189, 248, 0.15);
             margin-bottom: 15px;
         }
 
-        .tags {
-            margin-top: 15px;
+        .badge.app {
+            background: rgba(0, 255, 204, 0.08);
+            color: var(--accent-glow);
+            border-color: rgba(0, 255, 204, 0.15);
         }
 
-        .tag {
-            background-color: #21262d;
-            color: var(--text-main);
+        .project-card p {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            margin-bottom: 20px;
+        }
+
+        .tags-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-tag {
+            background: #141b26;
+            color: var(--text-primary);
             font-size: 0.8rem;
-            padding: 3px 8px;
-            border-radius: 3px;
-            margin-right: 6px;
-            border: 1px solid #30363d;
+            font-weight: 500;
+            padding: 4px 10px;
+            border-radius: 4px;
+            border: 1px solid var(--border-line);
+        }
+
+        .footer-box {
+            background: linear-gradient(135deg, #0f131a 0%, #07090e 100%);
+            border: 1px solid var(--border-line);
+            border-radius: 14px;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .footer-box p {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-size: 1.15rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 8px;
+            border: 1px solid var(--border-line);
+            transition: all 0.2s ease;
+        }
+
+        .contact-btn.primary {
+            background: var(--gradient-text);
+            color: var(--bg-dark);
+            border: none;
+        }
+
+        .contact-btn:hover {
+            transform: scale(1.02);
+            opacity: 0.95;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
+    
     <header>
+        <div class="title-badge">Shopify Plus & Full-Stack Application Engineer</div>
         <h1>Naresh Kumar</h1>
-        <div class="subtitle">Senior E-commerce Engineer & UI/UX Architect</div>
-        <p class="bio">
-            Agency-trained Full-Stack Web Developer specializing in engineering high-performing, custom digital infrastructure. I bridge the gap between pixel-perfect design aesthetics and raw performance metrics. I don't build template-bloat; I hard-code optimized systems that load under 2 seconds.
-        </p>
+        <p>Specializing in custom e-commerce apps, API plugin engineering, and headless storefronts. I build scalable backends and pixel-perfect high-converting experiences for brands driving millions in revenue.</p>
     </header>
 
-    <section id="skills">
-        <h2>Core Technical Stack</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>Shopify Architecture</h3>
+    <section id="capabilities">
+        <h2>Expertise & Capabilities Matrix</h2>
+        <div class="services-grid">
+            
+            <div class="service-card">
+                <h3><span>/ 01</span> Shopify Custom Ecosystems</h3>
                 <ul>
-                    <li>Custom Liquid Coding</li>
-                    <li>Storefront API (Headless)</li>
-                    <li>Dynamic Variant Logic</li>
-                    <li>App Purging & Integration</li>
+                    <li>Bespoke Extension & App Development</li>
+                    <li>Headless Architecture & Storefront APIs</li>
+                    <li>Custom Liquid Core Theme Engine Engineering</li>
+                    <li>Dynamic Variant Handlers & Logic Overhauls</li>
                 </ul>
             </div>
-            <div class="skill-card">
-                <h3>WordPress Engineering</h3>
+
+            <div class="service-card">
+                <h3><span>/ 02</span> WordPress Plugin Engineering</h3>
                 <ul>
-                    <li>Bespoke WooCommerce</li>
-                    <li>Custom Plugin Hooks</li>
-                    <li>Database Optimization</li>
-                    <li>Server/cPanel Migrations</li>
+                    <li>Custom Object & API Integration Plugins</li>
+                    <li>WooCommerce Database Optimization</li>
+                    <li>Automated Third-Party Sync Cycles</li>
+                    <li>Enterprise-Grade Server Hardening</li>
                 </ul>
             </div>
-            <div class="skill-card">
-                <h3>Frontend Architecture</h3>
+
+            <div class="service-card">
+                <h3><span>/ 03</span> Premium Conversion Architect</h3>
                 <ul>
-                    <li>Modern JavaScript (ES6+)</li>
-                    <li>HTML5 / CSS3 Grid</li>
-                    <li>Core Web Vitals Blueprint</li>
-                    <li>Responsive UI Refactoring</li>
+                    <li>High-Ticket Corporate & Business Portals</li>
+                    <li>Sub-2s Speed Optimization Sprints</li>
+                    <li>Clean Pixel-Perfect Responsive Designs</li>
+                    <li>Technical Core Web Vitals Frameworks</li>
                 </ul>
             </div>
+
         </div>
     </section>
 
-    <section id="projects">
-        <h2>Production-Ready Live Case Studies</h2>
-        
-        <div class="project-card">
-            <div class="project-header">
-                <h3 class="project-title">Dynamic E-Commerce Conversion System</h3>
-                <a href="#" class="project-link" target="_blank">Live Client Link →</a>
+    <section id="portfolio">
+        <h2>Live Enterprise-Grade Implementations</h2>
+        <div class="project-grid">
+            
+            <div class="project-card">
+                <div class="project-top">
+                    <div class="project-header">
+                        <h3 class="project-title">Mini Katana Custom Product Builder</h3>
+                        <a href="https://minikatana.com/products/custom-katana" class="live-btn" target="_blank">Live Site ↗</a>
+                    </div>
+                    <div class="badge app">Shopify Custom App Ecosystem</div>
+                    <p>Engineered and integrated a highly complex custom product builder system for custom swords, handling real-time interactive variant rendering, dynamic pricing scales, and asset configuration parameters flawlessly.</p>
+                </div>
+                <div class="tags-wrapper">
+                    <span class="tech-tag">Shopify App Setup</span>
+                    <span class="tech-tag">Custom Frontend Engine</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Liquid Logic</span>
+                </div>
             </div>
-            <div class="metrics-badge">⚡ Core Web Vitals: 95+ Mobile Score</div>
-            <p>Engineered a dynamic price-display and layout visibility system handler for high-volume variant switching. Eliminated dependencies on three 3rd-party Shopify apps by hard-coding the layout loops natively into Vanilla JS and Liquid themes.</p>
-            <div class="tags">
-                <span class="tag">Shopify</span>
-                <span class="tag">Custom Liquid</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Performance Tuning</span>
-            </div>
-        </div>
 
-        <div class="project-card">
-            <div class="project-header">
-                <h3 class="project-title">Enterprise B2B Infrastructure Optimization</h3>
-                <a href="#" class="project-link" target="_blank">Live Client Link →</a>
+            <div class="project-card">
+                <div class="project-top">
+                    <div class="project-header">
+                        <h3 class="project-title">Oba Real Estate Automated Portal</h3>
+                        <a href="https://obarealestate.com/properties/" class="live-btn" target="_blank">Live Site ↗</a>
+                    </div>
+                    <div class="badge">Bespoke WordPress Plugin Architecture</div>
+                    <p>Developed a dedicated background property indexing plugin from scratch. Engineered structural API integration pipelines to pull, map, and dynamically render thousands of real-time active property listings with zero latency loops.</p>
+                </div>
+                <div class="tags-wrapper">
+                    <span class="tech-tag">Custom Plugin Engineering</span>
+                    <span class="tech-tag">REST API Matrix</span>
+                    <span class="tech-tag">WordPress Backend</span>
+                    <span class="tech-tag">PHP Automation</span>
+                </div>
             </div>
-            <div class="metrics-badge">⚡ Performance Boost: From 37 to 92+ Desktop Score</div>
-            <p>Surgically refactored the critical rendering path for a major B2B portal. Purged render-blocking resources, optimized large architectural asset delivery, fixed cumulative layout shifts (CLS), and implemented advanced database hooks to prevent backend latency.</p>
-            <div class="tags">
-                <span class="tag">WordPress</span>
-                <span class="tag">PHP Custom Hooks</span>
-                <span class="tag">Technical SEO</span>
-                <span class="tag">Server Optimization</span>
+
+            <div class="project-card">
+                <div class="project-top">
+                    <div class="project-header">
+                        <h3 class="project-title">Maison Hadenn Luxury Storefront</h3>
+                        <a href="https://maisonhadenn.fr/" class="live-btn" target="_blank">Live Site ↗</a>
+                    </div>
+                    <div class="badge">Premium Brand Experience</div>
+                    <p>Deploys high-fidelity design aesthetics while maintaining brutal performance rules. Clean custom theme refactoring to optimize user pathways, secure transactional checkouts, and eliminate third-party heavy script layouts.</p>
+                </div>
+                <div class="tags-wrapper">
+                    <span class="tech-tag">Luxury E-commerce</span>
+                    <span class="tech-tag">Theme Architecture</span>
+                    <span class="tech-tag">UX/UI Optimization</span>
+                    <span class="tech-tag">Core Web Vitals</span>
+                </div>
             </div>
+
+            <div class="project-card">
+                <div class="project-top">
+                    <div class="project-header">
+                        <h3 class="project-title">Skypoint AI Platform Engineering</h3>
+                        <a href="https://skypoint.ai/" class="live-btn" target="_blank">Live Site ↗</a>
+                    </div>
+                    <div class="badge">High-Performance Tech Layout</div>
+                    <p>Executed layout optimization and dynamic component configurations for a scale SaaS platform. Managed core rendering logic to ensure seamless data communication workflows and fluid enterprise interactions.</p>
+                </div>
+                <div class="tags-wrapper">
+                    <span class="tech-tag">SaaS Infrastructure</span>
+                    <span class="tech-tag">Responsive Interfaces</span>
+                    <span class="tech-tag">Advanced Web Frameworks</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-top">
+                    <div class="project-header">
+                        <h3 class="project-title">Survival Club Brand Infrastructure</h3>
+                        <a href="http://survivalclub.com/" class="live-btn" target="_blank">Live Site ↗</a>
+                    </div>
+                    <div class="badge">Scalable Storefront System</div>
+                    <p>Built a robust, responsive web setup focusing on handling spike traffic during inventory drops. Optimized asset chains and script sequences to secure structural integrity and stable mobile page transitions.</p>
+                </div>
+                <div class="tags-wrapper">
+                    <span class="tech-tag">Shopify Plus Ecosystem</span>
+                    <span class="tech-tag">Performance Tuning</span>
+                    <span class="tech-tag">Fluid UI Deployment</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-top">
+                    <div class="project-header">
+                        <h3 class="project-title">Aviora Wholesale B2B System</h3>
+                        <a href="https://aviorawholesale.com/" class="live-btn" target="_blank">Live Site ↗</a>
+                    </div>
+                    <div class="badge">B2B E-Commerce Engineering</div>
+                    <p>Implemented custom access rules, bulk transaction systems, and unique wholesaling product views. Structured the architecture to smoothly process deep inventory listings and corporate purchase pipelines.</p>
+                </div>
+                <div class="tags-wrapper">
+                    <span class="tech-tag">Wholesale Management</span>
+                    <span class="tech-tag">Inventory Automations</span>
+                    <span class="tech-tag">Custom Database Sync</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-top">
+                    <div class="project-header">
+                        <h3 class="project-title">Billfish Gear High-Converting Storefront</h3>
+                        <a href="https://billfishgear.com/" class="live-btn" target="_blank">Live Site ↗</a>
+                    </div>
+                    <div class="badge">D2C Performance Framework</div>
+                    <p>Optimized the rendering pipeline and overhauled conversion funnels. Native scripts integrations replaced app extensions to achieve sub-2-second transaction page generation times.</p>
+                </div>
+                <div class="tags-wrapper">
+                    <span class="tech-tag">D2C Scaling Architecture</span>
+                    <span class="tech-tag">App-Free Codebase</span>
+                    <span class="tech-tag">Speed Tuning Sprints</span>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <section id="contact">
-        <h2>Let's Build Something High-Yield</h2>
-        <p>Operating as a full-time freelancer open to agile project-based contracts and independent white-label agency execution pipelines.</p>
-        <p><strong>LinkedIn:</strong> linkedin.com/in/naresh-shopify-expert/<br>
-        <strong>Availability:</strong> Full-Time (Immediate Sprint Capacity)</p>
+    <section class="footer-box">
+        <h2>Ready to Build Enterprise Digital Infrastructure?</h2>
+        <p>Open to technical architecture contracts, dedicated freelance sprints, or acting as an outsourced white-label partner for global design studios.</p>
+        <div class="contact-links">
+            <a href="https://www.linkedin.com/in/naresh-shopify-expert/" class="contact-btn primary" target="_blank">Connect via LinkedIn</a>
+        </div>
     </section>
+
 </div>
 
 </body>
